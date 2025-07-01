@@ -1,23 +1,24 @@
 import React from "react";
+import "./Footer.css";
 
 function Footer() {
   return (
-    <footer className="bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 py-6 mt-16">
-      <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-        <p className="text-sm mb-4 md:mb-0">
+    <footer className="footer">
+      <div className="footer-container">
+        <p className="footer-text">
           &copy; {new Date().getFullYear()} Ismael Sierra Vega. Todos los
           derechos reservados.
         </p>
-        <div className="flex space-x-6">
+        <div className="footer-icons">
           <a
             href="https://github.com/ismael-sierra"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="hover:text-blue-600 dark:hover:text-blue-400 transition"
+            className="footer-icon-link"
           >
             <svg
-              className="w-6 h-6 fill-current"
+              className="footer-icon"
               viewBox="0 0 24 24"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
@@ -30,10 +31,10 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="hover:text-blue-600 dark:hover:text-blue-400 transition"
+            className="footer-icon-link"
           >
             <svg
-              className="w-6 h-6 fill-current"
+              className="footer-icon"
               viewBox="0 0 24 24"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"

@@ -1,0 +1,55 @@
+.about-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+  color: var(--text);
+}
+
+.about-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about-text {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.tech-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+}
+
+.tech-badges img {
+  height: 28px;
+  transition: transform 0.2s ease;
+}
+
+.tech-badges img:hover {
+  transform: scale(1.1);
+}
+
+@media (min-width: 768px) {
+  .about-title {
+    font-size: 2.5rem;
+  }
+
+  .about-text {
+    font-size: 1.2rem;
+  }
+}

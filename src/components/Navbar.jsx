@@ -1,52 +1,64 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, Menu, X } from "lucide-react";
+import "./Navbar.css";
 
 function Navbar({ darkMode, setDarkMode }) {
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleDarkMode = () => {
-    setDarkMode((prev) => !prev);
-  };
+  const toggleDarkMode = () => setDarkMode((prev) => !prev);
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const closeMenu = () => setMenuOpen(false);
 
-  const isActive = (path) =>
-    location.pathname === path
-      ? "text-blue-500 dark:text-blue-400"
-      : "hover:text-blue-500 dark:hover:text-blue-400";
+  const isActive = (path) => (location.pathname === path ? "active" : "");
 
   return (
-    <header className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <Link to="/" className="text-xl font-bold">
-          Ismael Sierra
+    <header className="navbar">
+      <div className="navbar-container">
+        <Link to="/" className="logo" onClick={closeMenu}>
+          Ismael Sierra Vega
         </Link>
-        <nav className="space-x-6">
-          <Link to="/" className={`transition ${isActive("/")}`}>
+
+        <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <Link to="/" className={isActive("/")} onClick={closeMenu}>
             Inicio
           </Link>
-          <Link to="/about" className={`transition ${isActive("/about")}`}>
+          <Link to="/about" className={isActive("/about")} onClick={closeMenu}>
             Sobre mí
           </Link>
           <Link
             to="/projects"
-            className={`transition ${isActive("/projects")}`}
+            className={isActive("/projects")}
+            onClick={closeMenu}
           >
             Proyectos
           </Link>
-          <Link to="/contact" className={`transition ${isActive("/contact")}`}>
+          <Link
+            to="/contact"
+            className={isActive("/contact")}
+            onClick={closeMenu}
+          >
             Contacto
           </Link>
         </nav>
-        <button
-          onClick={toggleDarkMode}
-          className="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:scale-110 transition"
-          aria-label="Toggle dark mode"
-        >
-          {darkMode ? (
-            <Sun className="w-5 h-5" />
-          ) : (
-            <Moon className="w-5 h-5" />
-          )}
-        </button>
+
+        <div className="navbar-actions">
+          <button
+            onClick={toggleDarkMode}
+            className="theme-toggle"
+            aria-label="Modo oscuro"
+          >
+            {darkMode ? <Sun /> : <Moon />}
+          </button>
+          <button
+            onClick={toggleMenu}
+            className="menu-toggle"
+            aria-label="Menú móvil"
+          >
+            {menuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
     </header>
   );

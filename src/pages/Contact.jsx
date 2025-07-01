@@ -1,5 +1,6 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import "./Contact.css";
 
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -33,58 +34,47 @@ function Contact() {
   };
 
   return (
-    <section className="max-w-3xl mx-auto px-4 py-20 md:py-28">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-        Contacto
-      </h2>
+    <section className="contact-section">
+      <h2 className="contact-title">Contacto</h2>
 
       {success && (
-        <p className="text-green-600 dark:text-green-400 text-center mb-6">
+        <p className="contact-success">
           ¡Gracias por tu mensaje! Te responderé pronto.
         </p>
       )}
 
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
-      >
-        <div>
-          <label className="block mb-2 font-semibold">Nombre</label>
+      <form onSubmit={handleSubmit} className="contact-form">
+        <div className="form-group">
+          <label>Nombre</label>
           <input
             type="text"
             name="name"
             value={form.name}
             onChange={handleChange}
             required
-            className="w-full p-3 rounded bg-gray-100 dark:bg-gray-700 border-none focus:outline-none"
           />
         </div>
-        <div>
-          <label className="block mb-2 font-semibold">Correo electrónico</label>
+        <div className="form-group">
+          <label>Correo electrónico</label>
           <input
             type="email"
             name="email"
             value={form.email}
             onChange={handleChange}
             required
-            className="w-full p-3 rounded bg-gray-100 dark:bg-gray-700 border-none focus:outline-none"
           />
         </div>
-        <div>
-          <label className="block mb-2 font-semibold">Mensaje</label>
+        <div className="form-group">
+          <label>Mensaje</label>
           <textarea
             name="message"
             rows="5"
             value={form.message}
             onChange={handleChange}
             required
-            className="w-full p-3 rounded bg-gray-100 dark:bg-gray-700 border-none focus:outline-none"
           ></textarea>
         </div>
-        <button
-          type="submit"
-          className="bg-blue-600 text-white dark:bg-blue-500 dark:text-gray-900 px-6 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-400 transition"
-        >
+        <button type="submit" className="contact-button">
           Enviar mensaje
         </button>
       </form>
