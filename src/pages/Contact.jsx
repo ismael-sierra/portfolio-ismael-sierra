@@ -13,6 +13,11 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const date = new Date().toLocaleString("es-ES", {
+      dateStyle: "medium",
+      timeStyle: "short",
+    });
+
     emailjs
       .send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -21,6 +26,7 @@ function Contact() {
           from_name: form.name,
           from_email: form.email,
           message: form.message,
+          date: date,
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
