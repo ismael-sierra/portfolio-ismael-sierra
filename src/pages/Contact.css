@@ -72,6 +72,17 @@
   background-color: var(--color-primary-dark);
 }
 
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+  background-color: #374151;
+  color: #ffffff;
+}
+
+body.dark-mode .form-group input::placeholder,
+body.dark-mode .form-group textarea::placeholder {
+  color: #cbd5e1;
+}
+
 @media (prefers-color-scheme: dark) {
   .contact-section {
     background-color: transparent;
@@ -86,12 +97,6 @@
   }
 
   .form-group label {
-    color: #f3f4f6;
-  }
-
-  .form-group input,
-  .form-group textarea {
-    background-color: #374151;
     color: #f3f4f6;
   }
 
